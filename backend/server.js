@@ -34,5 +34,9 @@ app.post('/api/auth/register', (req, res) => {
   res.json({ success: true, user: userWithoutPassword });
 });
 
-const PORT = 5005;
-app.listen(PORT, () => console.log(`Backend server running on port ${PORT}`));
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = 5005;
+  app.listen(PORT, () => console.log(`Backend server running on port ${PORT}`));
+}
+
+module.exports = app;

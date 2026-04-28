@@ -13,8 +13,10 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Connect to our express backend
-      const res = await axios.post('http://localhost:5005/api/auth/login', { email, password });
+      const apiUrl = import.meta.env.PROD 
+        ? '/_/backend/api/auth/login' 
+        : 'http://localhost:5005/api/auth/login';
+      const res = await axios.post(apiUrl, { email, password });
       if (res.data.success) {
         login(res.data.user);
         navigate('/dashboard');
