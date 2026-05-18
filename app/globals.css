@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 4%;
+    --primary: 240 6% 10%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 240 6% 10%;
+    --radius: 0.75rem;
+    --accent: 240 6% 10%;
+    --accent-soft: 240 5% 96%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Role themes */
+.theme-brand {
+  --accent: 24 10% 10%;
+  --accent-soft: 40 20% 96%;
+  --ring: 24 10% 20%;
+}
+.theme-creator {
+  --accent: 263 70% 50%;
+  --accent-soft: 270 50% 97%;
+  --ring: 263 70% 50%;
+}
+.theme-agency {
+  --accent: 201 90% 40%;
+  --accent-soft: 204 60% 97%;
+  --ring: 201 90% 40%;
+}
+.theme-admin {
+  --accent: 0 0% 0%;
+  --accent-soft: 0 0% 96%;
+  --ring: 0 0% 0%;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass {
+    @apply border border-white/20 bg-white/70 backdrop-blur-xl;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+}
